@@ -1,0 +1,88 @@
+---
+:data_bundles:
+- :name: !binary |-
+    RXhwb3J0U2V0dGluZ3M=
+  :length: 20
+  :data: !binary |-
+    AwBBoAAAAAIAAEEAAAABAQAAAAE=
+- :name: !binary |-
+    SGV4dHVyZURhdGE=
+  :length: 64
+  :data: !binary |-
+    CggAAAAAAAAAP4AAAD8AAAC/AAAAAQf///8AAAAAAAAAAAAAAAAAAAAAAAAA
+    AAAAQYAAAEGAAAAAAD+AAAAAAA==
+- :name: !binary |-
+    VmVyc2lvbkRhdGE=
+  :length: 50
+  :data: !binary |-
+    ATwoAABIZXhlbHMgVmVyc2lvbiAxLjMuMCBCdWlsZCAzNzA1IE1hYyBPU1gg
+    MTAuOQA=
+:modes:
+- :name_length: 8
+  :name: !binary |-
+    U3RhbmRhcmQ=
+  :data_length: 5
+  :data: !binary |-
+    AA==
+- :name_length: 6
+  :name: !binary |-
+    VHJpeGVs
+  :data_length: 20
+  :data: !binary |-
+    Az+TzTY/gAAAAAAAAAABAQ==
+- :name_length: 6
+  :name: !binary |-
+    U2hhcmRz
+  :data_length: 10
+  :data: !binary |-
+    Aj8TzB4B
+- :name_length: 5
+  :name: !binary |-
+    UGl4ZWw=
+  :data_length: 5
+  :data: !binary |-
+    AA==
+- :name_length: 5
+  :name: !binary |-
+    Q3ViZXM=
+  :data_length: 89
+  :data: !binary |-
+    AQAAAAAAAAAAP4AAAD+AAAA/gAAAP4AAAD+AAAAAAAAAP4AAAAAAAAA/Xd3e
+    P13d3j9d3d4/gAAAAAAAAL+AAAAAAAAAPqqqqz6qqqs+qqqrP4AAAA==
+- :name_length: 9
+  :name: !binary |-
+    U3RhcmJ1cnN0
+  :data_length: 45
+  :data: !binary |-
+    Aj+AAAA/gAAAP4AAAD+AAAA/Cj1xAAAAAAAAAAAAAAAAAAAAAD+AAAA=
+- :name_length: 5
+  :name: !binary |-
+    QmV2ZWw=
+  :data_length: 33
+  :data: !binary |-
+    AT6uFHtC8AAAQiAAAD+AAAA/gAAAP4AAAD+AAAA=
+- :name_length: 4
+  :name: !binary |-
+    UGx1cw==
+  :data_length: 13
+  :data: !binary |-
+    AT8AAAAAAAAA
+- :name_length: 7
+  :name: !binary |-
+    Vm9yb25vaQ==
+  :data_length: 26
+  :data: !binary |-
+    Aj+TzToAAAAAPwAAAD5MzM0AAAAFAA==
+- :name_length: 6
+  :name: !binary |-
+    Q3VzdG9t
+  :data_length: 81
+  :data: !binary |-
+    BAgAAAU/E806PqqqqwAAAAA/KqqrvxPNOj6qqqu/E806vqqqqwAAAAC/Kqqr
+    PxPNOr6qqqs/AAAAP4AAAD+AAAAAAAAAAAAAAAAAAAA=
+- :name_length: 4
+  :name: !binary |-
+    WC1lbA==
+  :data_length: 9
+  :data: !binary |-
+    AT8AAAA=
