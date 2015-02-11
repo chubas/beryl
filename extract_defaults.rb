@@ -4,7 +4,6 @@ def extract_defaults(in_file, out_file)
   defaults = {}
   io = File.open(in_file, 'r')
   hexels = Hexels.read(io)
-  defaults[:data_bundles] = []
 
   defaults[:modes] = hexels.render_mode.modes.map do |mode|
     {
@@ -15,6 +14,7 @@ def extract_defaults(in_file, out_file)
     }
   end
 
+  defaults[:data_bundles] = []
   hexels.data_bundles.each do |bundle|
     if ['ExportSettings', 'HextureData', 'VersionData'].include?(bundle.name)
       defaults[:data_bundles] << {

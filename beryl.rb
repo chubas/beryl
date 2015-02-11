@@ -71,6 +71,7 @@ end
 class Hexels < BinData::Record
   endian :little
   string :header, :length => 7
+  # TODO: This should be a chr converted to an int, not a string
   string :version, :length => 1
   int32 :width
   int32 :height
