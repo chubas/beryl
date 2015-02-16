@@ -16,14 +16,28 @@ class Snowflake
     end
     seed
     (@radius + 1 + 10).times do |iter|
-      paint(iter)
       transform(iter)
     end
+    paint('big')
   end
 
   def seed
-    x, y = hex_to_sq(0, 0)
-    @grid[y][x] = { :r => 50, :g => 108, :b => 217, :a => 255 }
+    # Simplest seed
+    # x, y = hex_to_sq(0, 0)
+    # @grid[y][x] = { :r => 50, :g => 108, :b => 217, :a => 255 }
+
+    # Arms
+    (0..@radius).each do |n|
+      next unless n.even?
+      [
+        [0, -n], [n, -n], [n, 0],
+        [0, n], [-n, n], [-n, 0]
+      ].uniq.each do |hx, hy|
+        x, y = hex_to_sq(hx, hy)
+        @grid[y][x] = { :r => 50, :g => 108, :b => 217, :a => 255 }
+      end
+    end
+
   end
 
   def paint(iter)
@@ -36,7 +50,7 @@ class Snowflake
         end
       end
     end
-    @canvas.write("snowflake_#{iter}.hxl")
+    @canvas.write(ARGV[1] || "snowflake_#{iter}.hxl")
   end
 
   def transform(iter)
@@ -70,7 +84,7 @@ class Snowflake
           #   :a => 255
           # }
           # puts "#{nx}, #{ny} (#{nx_hex}, #{ny_hex}) => #{exists_sq?(ny_hex, nx_hex)}"
-          neighbor_pattern << ((exists_sq?(nx_hex, ny_hex) && @grid[ny][nx]) ? '1' : '0')
+          neighbor_pattern << ((exists_sq?(nx_hex, ny_hex) && is_inside_hexagon?(nx_hex, ny_hex) && @grid[ny][nx]) ? '1' : '0')
 
           # puts " - Colors:"
           # puts "  #{(256 / (@radius + 1)) * ny_hex.abs}"
@@ -94,15 +108,17 @@ class Snowflake
 
         n = patterns.index(m)
         # puts "Neighbor pattern for #{x}, #{y} => #{neighbor_pattern}, index: #{n}"
-        if @grid[y][x] == nil
-          if should_freeze[n]
-            # puts "FREEZING #{x}, #{y}"
-            clone[y][x] = { :r => 255, :g => 255, :b => 255, :a => 255 }
-          end
-        else
-          if should_melt[n]
-            # puts "MELTING #{x}, #{y}"
-            clone[y][x] = nil
+        if is_inside_hexagon?(*sq_to_hex(x, y))
+          if @grid[y][x] == nil
+            if should_freeze[n]
+              # puts "FREEZING #{x}, #{y}"
+              clone[y][x] = { :r => 255, :g => 255, :b => 255, :a => 255 }
+            end
+          else
+            if should_melt[n]
+              # puts "MELTING #{x}, #{y}"
+              clone[y][x] = nil
+            end
           end
         end
 
@@ -111,6 +127,10 @@ class Snowflake
       end
     end
     @grid = clone
+  end
+
+  def is_inside_hexagon?(hx, hy)
+    return hx.abs <= @radius && hy.abs <= @radius && (hx + hy).abs <= @radius
   end
 
   # Utility methods
